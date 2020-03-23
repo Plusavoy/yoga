@@ -38,7 +38,7 @@ window.addEventListener('DOMContentLoaded', function(){
 
 // Timer
 
-    let deadline = '2020-03-20';
+    let deadline = '2021-03-20';
 
     function getTimeRemaining(endtime) {
         let t = Date.parse(endtime) - Date.parse(new Date()),
@@ -77,7 +77,38 @@ window.addEventListener('DOMContentLoaded', function(){
     }
 
     setClock('timer', deadline);
+
+    // Modal
+
+    let more = document.querySelector('.more'),
+        overlay = document.querySelector('.overlay'),
+        close = document.querySelector('.popup-close'),
+        tabsMore = document.querySelectorAll('.description-btn');
+
+        tabsMore.addEventListener('click', function() {
+                overlay.style.display = 'block';
+                this.classList.add('more-splash'); 
+                document.body.style.overflow = 'hidden';
+        });
+
+        more.addEventListener('click', function() {
+            overlay.style.display = 'block';
+            this.classList.add('more-splash');
+            document.body.style.overflow = 'hidden';
+        });
+
+
+        close.addEventListener('click', function() {
+            overlay.style.display = 'none';
+            more.classList.remove('more-splash');
+            document.body.style.overflow = '';
+        });
+        
 });
+
+
+    
+    
 
 
 
